@@ -40,6 +40,10 @@ abstract class Repository
             $response = $this->query()->create($data);
             DB::commit();
             return $response;
+        }catch (QueryException $queryException){
+            report($queryException);
+            DB::rollBack();
+            return null;
         }catch (Exception $exception){
             report($exception);
             DB::rollBack();
