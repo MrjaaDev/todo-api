@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Interfaces\TaskCommandInterface;
 use App\Interfaces\TaskQueryInterface;
 use App\Interfaces\UserCommandInterface;
 use App\Interfaces\UserQueryInterface;
@@ -17,6 +18,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(UserQueryInterface::class, UserRepository::class);
 
         $this->app->bind(TaskQueryInterface::class, TaskRepository::class);
+        $this->app->bind(TaskCommandInterface::class, TaskRepository::class);
     }
 
     public function boot()
