@@ -18,7 +18,7 @@ abstract class Repository
 
     protected function All()
     {
-        return $this->query()->get();
+        return $this->query()->get()->toArray();
     }
 
     protected function Get(int $id)
